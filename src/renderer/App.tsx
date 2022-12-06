@@ -8,7 +8,10 @@ export default function App() {
     <div>
       <h1>{titulo}</h1>
       <img width="200" alt="icon" src={FotoFachera} />
-      <BotonReusable link="https://github.com/" name="Github" />
+      <BotonReusable
+        link="https://github.com/maurolemunao/poec-maurolemunao"
+        name="Github Repositorio"
+      />
       <BotonReusable link="https://classroom.google.com/" name="Classroom" />
     </div>
   );

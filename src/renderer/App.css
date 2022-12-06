@@ -21,6 +21,7 @@ body {
 
 button {
   background-color: white;
+  margin-top: 15px;
   padding: 10px 20px;
   border-radius: 10px;
   border: none;
