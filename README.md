@@ -1,1 +1,1 @@
-<img src="./assets/icons/hatkid.ppg" width="100%" />
+<img src="./assets/icons/hatkid.png" width="100%" />

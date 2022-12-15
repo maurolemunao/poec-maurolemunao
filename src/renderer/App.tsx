@@ -1,18 +1,21 @@
+import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import FotoFachera from '../../assets/icons/jony.jpg';
 import './App.css';
-import BotonReusable from './components/Home';
+import BotonReusable from './views/Home';
+import Menus from './components/Menus';
+import Profile from './views/Profile';
+import TitleBar from './components/Titlebar';
 
 export default function App() {
-  const titulo = 'Botones con links';
   return (
     <div>
-      <h1>{titulo}</h1>
-      <img width="200" alt="icon" src={FotoFachera} />
-      <BotonReusable
-        link="https://github.com/maurolemunao/poec-maurolemunao"
-        name="Github Repositorio"
-      />
-      <BotonReusable link="https://classroom.google.com/" name="Classroom" />
+      <TitleBar />
+      <Menus />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Profile />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
