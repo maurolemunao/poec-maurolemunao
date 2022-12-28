@@ -2,6 +2,15 @@ import { Channels } from 'main/preload';
 
 declare global {
   interface Window {
+    nativeFunctions: {
+      minimize: () => void;
+      maxRest: () => void;
+      close: () => void;
+    };
+
+    /*
+declare global {
+  interface Window {
     electron: {
       ipcRenderer: {
         sendMessage(channel: Channels, args: unknown[]): void;
@@ -14,5 +23,7 @@ declare global {
     };
   }
 }
-
+*/
+  }
+}
 export {};

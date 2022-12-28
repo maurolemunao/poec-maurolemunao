@@ -11,6 +11,7 @@ export default function App() {
     <div>
       <TitleBar />
       <Menus />
+
       <Router>
         <Routes>
           <Route path="/" element={<Profile />} />

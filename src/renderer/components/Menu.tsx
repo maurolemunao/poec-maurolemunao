@@ -1,45 +1,38 @@
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/require-default-props */
-
 import { useState } from 'react';
 
 type PropsComponenteN = {
-  menudesplegable: string;
-  classes?: string;
+  label: string;
+  options: string[];
+  show: boolean;
+  showMe: () => void;
 };
-function Menu({ menudesplegable }: PropsComponenteN) {
-  const [mostrar, setMostrar] = useState(false);
+function Menu({ label, options, show, showMe }: PropsComponenteN) {
   return (
     <div
-      onClick={(e) => setMostrar(!mostrar)}
+      onMouseOver={showMe}
+      onClick={showMe}
       style={{
         padding: 8,
-        color: '#2e2e2e',
-        background: '#FFFFFF',
         position: 'relative',
         userSelect: 'none',
       }}
     >
-      {menudesplegable}
+      {label}
       <div
+        className="menu"
         style={{
-          display: !mostrar ? 'none' : 'block',
-          color: '#2e2e2e',
-          background: '#FFFFFF',
-          position: 'absolute',
-          width: 150,
-          left: 0,
+          display: !show ? 'none' : 'block',
         }}
       >
         <ul>
-          <>
-            <li>Opciones </li>
-            <li>Nuevo </li>
-            <li>Nueva Ventana </li>
-            <li>Abrir </li>
-          </>
+          {options.map((option) => (
+            <li>{option}</li>
+          ))}
         </ul>
       </div>
     </div>

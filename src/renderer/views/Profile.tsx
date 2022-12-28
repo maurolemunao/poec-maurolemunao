@@ -8,7 +8,7 @@ export default function Profile() {
 
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
-  const [fechaNacimiento, setFechaNacimiento] = useState(Date);
+  const [fechaNacimiento, setFechaNacimiento] = useState('');
   const [edad, setEdad] = useState(0);
   const [telefono, setTelefono] = useState(0);
   const [dni, setDni] = useState(0);
@@ -25,13 +25,13 @@ export default function Profile() {
       setLoading(false);
       setNombre('Mauro Franco Gabriel');
       setApellido('Lemunao');
-      setFechaNacimiento('18/09/2000');
+      setFechaNacimiento(new Date('2000-09-18').toISOString());
       setEdad(22);
       setTelefono(2944696594);
       setDni(42806251);
-      setCosaFavorita('La politica');
+      setCosaFavorita('La scaloneta');
       setImg(
-        'https://art.ngfiles.com/images/748000/748572_thattechnique_purify.png?f1545322103'
+        'https://p4.wallpaperbetter.com/wallpaper/452/344/1000/artistic-pixel-art-wallpaper-preview.jpg'
       );
     }, 3000);
   }, []);
@@ -46,10 +46,13 @@ export default function Profile() {
     >
       <h1>Mi Perfil</h1>
       <img
+        style={{
+          borderRadius: 75,
+        }}
         src={img || null}
         alt=""
-        width={250}
-        height={250}
+        width={200}
+        height={200}
         className={loading ? 'skeleton' : ''}
       />{' '}
       <div className="datos-container">
@@ -85,7 +88,9 @@ export default function Profile() {
             placeholder="Fecha de Nacimiento"
           />
         ) : (
-          <span className={loading ? 'skeleton' : ''}>{fechaNacimiento}</span>
+          <span className={loading ? 'skeleton' : ''}>
+            {new Date(fechaNacimiento).toLocaleDateString()}
+          </span>
         )}
       </div>
       <div className="datos-container">
